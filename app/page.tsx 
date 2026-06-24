@@ -1,21 +1,16 @@
+import IdeaForm from "../components/IdeaForm";
+import ResultsPanel from "../components/ResultsPanel";
+
 export default function Home() {
   return (
-    <main style={{ padding: "2rem", fontFamily: "system-ui", maxWidth: "720px", margin: "0 auto" }}>
+    <main style={{ padding: "2rem", maxWidth: "720px", margin: "0 auto" }}>
       <h1>ZeroFounder</h1>
       <p>
         An AI co-founder companion that helps solo builders turn rough ideas into launch-ready plans with persistent memory on 0G.
       </p>
 
-      <section style={{ marginTop: "2rem" }}>
-        <h2>Describe your idea</h2>
-        <input
-          placeholder="e.g. An app that helps students plan study sessions"
-          style={{ width: "100%", padding: "0.9rem", fontSize: "1rem", marginTop: "0.5rem" }}
-        />
-        <button style={{ marginTop: "1rem", padding: "0.8rem 1rem" }}>
-          Generate launch plan
-        </button>
-      </section>
+      <IdeaForm />
+      <ResultsPanel />
     </main>
   );
 }
