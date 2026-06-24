@@ -1,0 +1,14 @@
+export default function IdeaForm() {
+  return (
+    <section style={{ marginTop: "2rem" }}>
+      <h2>Describe your idea</h2>
+      <input
+        placeholder="e.g. An app that helps students plan study sessions"
+        style={{ width: "100%", padding: "0.9rem", fontSize: "1rem", marginTop: "0.5rem" }}
+      />
+      <button style={{ marginTop: "1rem", padding: "0.8rem 1rem" }}>
+        Generate launch plan
+      </button>
+    </section>
+  );
+}
