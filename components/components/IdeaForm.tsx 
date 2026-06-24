@@ -1,0 +1,79 @@
+"use client";
+
+import { useState } from "react";
+
+export default function IdeaForm() {
+  const [idea, setIdea] = useState("");
+  const [result, setResult] = useState({
+    brief: "ZeroFounder turns rough ideas into structured launch plans with persistent project memory on 0G.",
+    scope: [
+      "Idea intake and interview flow",
+      "AI-generated product brief",
+      "Launch checklist and next steps",
+      "Saved project memory for future sessions",
+    ],
+    nextStep:
+      "Start with a narrow idea, validate the problem, and save the project context so the agent can continue later.",
+  });
+
+  function handleGenerate() {
+    const trimmed = idea.trim();
+
+    setResult({
+      brief: trimmed
+        ? `ZeroFounder will help turn “${trimmed}” into a launch-ready plan with persistent memory on 0G.`
+        : "ZeroFounder turns rough ideas into structured launch plans with persistent project memory on 0G.",
+      scope: [
+        trimmed ? `Interview the user about: ${trimmed}` : "Idea intake and interview flow",
+        "AI-generated product brief",
+        "Launch checklist and next steps",
+        "Saved project memory for future sessions",
+      ],
+      nextStep: trimmed
+        ? `Refine the scope for “${trimmed}”, identify the target user, and build the smallest useful version first.`
+        : "Start with a narrow idea, validate the problem, and save the project context so the agent can continue later.",
+    });
+  }
+
+  return (
+    <section style={{ marginTop: "2rem" }}>
+      <h2>Describe your idea</h2>
+      <input
+        value={idea}
+        onChange={(e) => setIdea(e.target.value)}
+        placeholder="e.g. An app that helps students plan study sessions"
+        style={{ width: "100%", padding: "0.9rem", fontSize: "1rem", marginTop: "0.5rem" }}
+      />
+      <button onClick={handleGenerate} style={{ marginTop: "1rem", padding: "0.8rem 1rem" }}>
+        Generate launch plan
+      </button>
+
+      <section style={{ marginTop: "2rem" }}>
+        <h2>Launch plan</h2>
+
+        <div
+          style={{
+            marginTop: "0.75rem",
+            padding: "1rem",
+            border: "1px solid #2a3553",
+            borderRadius: "16px",
+            background: "#11182a",
+          }}
+        >
+          <h3 style={{ marginTop: 0 }}>Product brief</h3>
+          <p style={{ marginBottom: "1rem" }}>{result.brief}</p>
+
+          <h3>MVP scope</h3>
+          <ul>
+            {result.scope.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+
+          <h3>Next step</h3>
+          <p style={{ marginBottom: 0 }}>{result.nextStep}</p>
+        </div>
+      </section>
+    </section>
+  );
+}
