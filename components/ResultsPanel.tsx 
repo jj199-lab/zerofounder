@@ -1,0 +1,35 @@
+export default function ResultsPanel() {
+  return (
+    <section style={{ marginTop: "2rem" }}>
+      <h2>Launch plan</h2>
+
+      <div
+        style={{
+          marginTop: "0.75rem",
+          padding: "1rem",
+          border: "1px solid #2a3553",
+          borderRadius: "16px",
+          background: "#11182a",
+        }}
+      >
+        <h3 style={{ marginTop: 0 }}>Product brief</h3>
+        <p style={{ marginBottom: "1rem" }}>
+          ZeroFounder turns rough ideas into structured launch plans with persistent project memory on 0G.
+        </p>
+
+        <h3>MVP scope</h3>
+        <ul>
+          <li>Idea intake and interview flow</li>
+          <li>AI-generated product brief</li>
+          <li>Launch checklist and next steps</li>
+          <li>Saved project memory for future sessions</li>
+        </ul>
+
+        <h3>Next step</h3>
+        <p style={{ marginBottom: 0 }}>
+          Start with a narrow idea, validate the problem, and save the project context so the agent can continue later.
+        </p>
+      </div>
+    </section>
+  );
+}
